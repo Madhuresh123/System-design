@@ -1,12 +1,12 @@
-package Observer;
+package behavioralDesignPatterns.Observer;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Channal {
 
     private List<Subscriber> subs = new ArrayList<>();
-    private String title;
+    private String videoTitle;
 
     public void subscribe(Subscriber sub){
         subs.add(sub);
@@ -16,18 +16,19 @@ public class Channal {
         subs.remove(sub);
     }
 
-    public void notifySubscribers(){
+    public void notifyUsers(){
         for(Subscriber sub: subs){
             sub.update();
         }
     }
 
-    public void upload(String title) {
-        this.title = title;
-        notifySubscribers();
+    public void upload(String videoTitle){
+        this.videoTitle = videoTitle;
+        notifyUsers();
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitle(){
+        return videoTitle;
     }
+
 }
